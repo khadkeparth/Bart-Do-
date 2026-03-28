@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>BART-DO – India's Global Export Marketplace</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#fff;color:#1a2332;line-height:1.6}
+
+/* NAV */
+nav{background:#fff;border-bottom:1px solid #e2e8f0;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100}
+.nav-logo{display:flex;align-items:center;gap:.5rem;font-size:1.3rem;font-weight:900;color:#0b1f3a;letter-spacing:-0.5px;text-decoration:none}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{text-decoration:none;font-size:.88rem;color:#4a5568;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:#0b6e4f}
+.nav-cta{background:#0b6e4f;color:#fff;border:none;padding:.5rem 1.3rem;border-radius:8px;font-size:.88rem;font-weight:700;cursor:pointer;transition:background .2s}
+.nav-cta:hover{background:#095c41}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#0b1f3a 0%,#0b6e4f 100%);color:#fff;padding:5rem 2rem 4rem;text-align:center}
+.hero-badge{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#a7d7c5;font-size:.72rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:1.5rem}
+.hero h1{font-size:3rem;font-weight:900;line-height:1.1;margin-bottom:1rem;max-width:700px;margin-left:auto;margin-right:auto}
+.hero h1 span{color:#39d353}
+.hero p{font-size:1.1rem;color:#a7d7c5;max-width:560px;margin:0 auto 2rem;line-height:1.7}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:#39d353;color:#0b1f3a;padding:.75rem 2rem;border-radius:8px;font-weight:800;font-size:.95rem;border:none;cursor:pointer;text-decoration:none;transition:opacity .2s}
+.btn-primary:hover{opacity:.9}
+.btn-outline{background:transparent;color:#fff;padding:.75rem 2rem;border-radius:8px;font-weight:700;font-size:.95rem;border:2px solid rgba(255,255,255,.4);cursor:pointer;text-decoration:none;transition:border-color .2s}
+.btn-outline:hover{border-color:#fff}
+.hero-stats{display:flex;justify-content:center;gap:3rem;margin-top:3.5rem;flex-wrap:wrap;padding-top:2.5rem;border-top:1px solid rgba(255,255,255,.1)}
+.hero-stat .num{font-size:2rem;font-weight:900;color:#fff}
+.hero-stat .lbl{font-size:.75rem;color:#a7d7c5;margin-top:.2rem}
+
+/* SECTIONS */
+section{padding:4.5rem 2rem}
+.container{max-width:1000px;margin:0 auto}
+.section-label{font-size:.72rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#0b6e4f;margin-bottom:.5rem}
+.section-title{font-size:2rem;font-weight:800;color:#0b1f3a;line-height:1.2;margin-bottom:.8rem}
+.section-sub{font-size:1rem;color:#64748b;max-width:560px;line-height:1.7}
+
+/* PROBLEM */
+.problem{background:#fff}
+.problem-banner{background:#fff8e1;border:1px solid #f6d28a;border-radius:14px;padding:1.8rem 2rem;margin:2rem 0;display:flex;align-items:center;gap:2rem;flex-wrap:wrap}
+.pb-stat{text-align:center;flex:1;min-width:100px}
+.pb-stat .big{font-size:2.4rem;font-weight:900}
+.pb-stat .sub{font-size:.78rem;margin-top:.2rem}
+.vs{font-size:1.6rem;color:#b45309;font-weight:300}
+.problem-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.2rem;margin-top:1.5rem}
+.pcard{background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:1.2rem 1.4rem}
+.pcard .icon{font-size:1.4rem;margin-bottom:.5rem}
+.pcard h3{font-size:.95rem;font-weight:700;color:#0b1f3a;margin-bottom:.3rem}
+.pcard p{font-size:.85rem;color:#64748b}
+
+/* HOW IT WORKS */
+.how{background:#f8fafc}
+.steps{display:flex;align-items:flex-start;gap:0;margin-top:2.5rem;flex-wrap:wrap}
+.step-item{flex:1;min-width:180px;text-align:center;padding:0 1rem;position:relative}
+.step-item:not(:last-child)::after{content:'→';position:absolute;right:-12px;top:22px;font-size:1.4rem;color:#0b6e4f;font-weight:700}
+.step-circle{width:48px;height:48px;border-radius:50%;background:#0b6e4f;color:#fff;font-size:1.1rem;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto .8rem}
+.step-icon{font-size:1.4rem;margin-bottom:.4rem}
+.step-item h3{font-size:.92rem;font-weight:700;color:#0b1f3a;margin-bottom:.3rem}
+.step-item p{font-size:.82rem;color:#64748b}
+
+/* FOR FARMERS */
+.farmers{background:#fff}
+.farmers-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;margin-top:2rem}
+.farmers-visual{background:linear-gradient(135deg,#0b1f3a,#0b6e4f);border-radius:16px;padding:2.5rem;color:#fff}
+.farmers-visual .price-compare{display:flex;gap:1.5rem;margin-bottom:1.5rem}
+.price-box{flex:1;background:rgba(255,255,255,.1);border-radius:10px;padding:1rem;text-align:center}
+.price-box .amount{font-size:1.6rem;font-weight:900}
+.price-box .desc{font-size:.72rem;color:#a7d7c5;margin-top:.2rem}
+.price-arrow{display:flex;align-items:center;color:#39d353;font-size:1.5rem;font-weight:900}
+.benefit-list{list-style:none;display:flex;flex-direction:column;gap:.7rem}
+.benefit-list li{display:flex;align-items:flex-start;gap:.7rem;font-size:.9rem}
+.benefit-list li .tick{width:20px;height:20px;background:#39d353;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;color:#0b1f3a;font-weight:900;flex-shrink:0;margin-top:.1rem}
+
+/* FOR BUYERS */
+.buyers{background:#f0f9f5}
+.buyers-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;margin-top:2rem}
+.bcard{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:1.4rem;border-top:3px solid #0b6e4f}
+.bcard .icon{font-size:1.5rem;margin-bottom:.6rem}
+.bcard h3{font-size:.95rem;font-weight:700;color:#0b1f3a;margin-bottom:.3rem}
+.bcard p{font-size:.83rem;color:#64748b}
+
+/* MARKET */
+.market{background:#fff}
+.market-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin-top:2rem}
+.mcard{background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:1.2rem;text-align:center}
+.mcard.blue{background:#f0f5ff;border-color:#aec4f0}
+.mcard .num{font-size:1.8rem;font-weight:900;color:#0b1f3a}
+.mcard.blue .num{color:#1565c0}
+.mcard .lbl{font-size:.75rem;color:#64748b;margin-top:.2rem}
+.mcard .src{font-size:.65rem;color:#94a3b8;margin-top:.2rem}
+
+/* TEAM */
+.team{background:#f8fafc}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-top:2rem}
+.team-card{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:1.8rem;text-align:center}
+.team-avatar{width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.4rem;font-weight:900;margin:0 auto 1rem}
+.team-card h3{font-size:1.05rem;font-weight:800;color:#0b1f3a;margin-bottom:.2rem}
+.team-card .role{font-size:.8rem;color:#0b6e4f;font-weight:600;margin-bottom:.6rem}
+.team-card p{font-size:.83rem;color:#64748b}
+
+/* INVESTOR */
+.investor{background:linear-gradient(135deg,#0b1f3a 0%,#0b6e4f 100%);color:#fff;text-align:center;padding:5rem 2rem}
+.investor .section-label{color:#a7d7c5}
+.investor .section-title{color:#fff}
+.investor .section-sub{color:#a7d7c5;margin:0 auto 2.5rem}
+.inv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.2rem;max-width:800px;margin:0 auto 2.5rem}
+.inv-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:1.4rem;text-align:center}
+.inv-card .num{font-size:1.7rem;font-weight:900;color:#39d353}
+.inv-card .lbl{font-size:.78rem;color:#a7d7c5;margin-top:.2rem}
+.inv-btns{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
+
+/* REGISTER FORM */
+.register{background:#f8fafc;padding:4.5rem 2rem}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;margin-top:2rem}
+.form-box{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:2rem}
+.form-box h3{font-size:1.1rem;font-weight:800;color:#0b1f3a;margin-bottom:.3rem}
+.form-box p{font-size:.85rem;color:#64748b;margin-bottom:1.2rem}
+.form-tabs{display:flex;gap:.5rem;margin-bottom:1.2rem}
+.tab{padding:.4rem .9rem;border-radius:6px;font-size:.8rem;font-weight:600;cursor:pointer;border:1px solid #e2e8f0;background:#f8fafc;color:#64748b;transition:all .2s}
+.tab.active{background:#0b6e4f;color:#fff;border-color:#0b6e4f}
+.form-group{margin-bottom:.9rem}
+.form-group label{display:block;font-size:.78rem;font-weight:600;color:#4a5568;margin-bottom:.3rem}
+.form-group input,.form-group select{width:100%;padding:.55rem .8rem;border:1px solid #e2e8f0;border-radius:8px;font-size:.88rem;color:#1a2332;outline:none;transition:border-color .2s}
+.form-group input:focus,.form-group select:focus{border-color:#0b6e4f}
+.submit-btn{width:100%;background:#0b6e4f;color:#fff;border:none;padding:.7rem;border-radius:8px;font-size:.92rem;font-weight:700;cursor:pointer;margin-top:.4rem;transition:background .2s}
+.submit-btn:hover{background:#095c41}
+.success-msg{display:none;background:#f0f9f5;border:1px solid #a7d7c5;border-radius:8px;padding:.8rem 1rem;font-size:.85rem;color:#0b6e4f;margin-top:.8rem;text-align:center}
+
+/* FOOTER */
+footer{background:#0b1f3a;color:#a7d7c5;padding:3rem 2rem;text-align:center}
+footer .logo{font-size:1.3rem;font-weight:900;color:#fff;margin-bottom:.5rem}
+footer p{font-size:.82rem;margin-bottom:1.5rem}
+.footer-links{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.footer-links a{color:#a7d7c5;text-decoration:none;font-size:.82rem;transition:color .2s}
+.footer-links a:hover{color:#fff}
+footer .copy{font-size:.75rem;color:#64748b}
+
+/* RESPONSIVE */
+@media(max-width:700px){
+  .hero h1{font-size:2rem}
+  .farmers-grid,.form-grid{grid-template-columns:1fr}
+  .step-item:not(:last-child)::after{display:none}
+  nav .nav-links{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#home">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 32" width="110" height="30">
+      <rect x="1" y="2" width="72" height="28" rx="14" fill="none" stroke="#1a2ee8" stroke-width="2"/>
+      <text x="9" y="21" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="15" fill="#1a2ee8">BART-D</text>
+      <rect x="77" y="2" width="42" height="28" rx="4" fill="#cef0e4"/>
+      <circle cx="98" cy="16" r="10" fill="#2196a8"/>
+      <ellipse cx="98" cy="16" rx="5" ry="10" fill="none" stroke="#1a6e52" stroke-width="1"/>
+      <line x1="88" y1="16" x2="108" y2="16" stroke="#1a6e52" stroke-width="1"/>
+      <ellipse cx="98" cy="16" rx="10" ry="4.5" fill="none" stroke="#1a6e52" stroke-width="1"/>
+      <ellipse cx="94" cy="12" rx="3" ry="2.5" fill="#3dba6e" opacity=".9"/>
+      <ellipse cx="102" cy="20" rx="2.5" ry="3" fill="#3dba6e" opacity=".9"/>
+      <path d="M98 6 A10 10 0 0 1 108 16" fill="none" stroke="#1db87a" stroke-width="2" stroke-linecap="round"/>
+      <polygon points="108,13 110,17 106,17" fill="#1db87a"/>
+      <path d="M98 26 A10 10 0 0 1 88 16" fill="none" stroke="#1db87a" stroke-width="2" stroke-linecap="round"/>
+      <polygon points="88,19 86,15 90,15" fill="#1db87a"/>
+    </svg>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#farmers">For Farmers</a></li>
+    <li><a href="#buyers">For Buyers</a></li>
+    <li><a href="#market">Market</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#investors">Investors</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('register').scrollIntoView({behavior:'smooth'})">Get Started</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-badge">Pre-Seed · $75,000 USD Raise</div>
+  <h1>India's Farmers Deserve <span>Fair Prices</span> for Their Produce</h1>
+  <p>BART-DO connects Indian farmers & SMEs directly to international buyers in 15 days — eliminating middlemen and unlocking up to 70% more revenue.</p>
+  <div class="hero-btns">
+    <a href="#register" class="btn-primary">Register as Farmer</a>
+    <a href="#buyers" class="btn-outline">I'm a Buyer</a>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="num">$51.2B</div><div class="lbl">India agri-exports FY25</div></div>
+    <div class="hero-stat"><div class="num">70%</div><div class="lbl">More revenue internationally</div></div>
+    <div class="hero-stat"><div class="num">15 Days</div><div class="lbl">Payment to farmer</div></div>
+    <div class="hero-stat"><div class="num">$9.9T</div><div class="lbl">Global agri-food market</div></div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem" id="problem">
+  <div class="container">
+    <div class="section-label">The Problem</div>
+    <h2 class="section-title">Farmers are the most underpaid link in the chain</h2>
+    <p class="section-sub">India is the world's 2nd largest agri-producer — yet farmers receive a fraction of what their produce is worth.</p>
+    <div class="problem-banner">
+      <div class="pb-stat">
+        <div class="big" style="color:#b45309">10–23%</div>
+        <div class="sub" style="color:#92400e">What Indian farmers receive<br>of the final consumer price</div>
+      </div>
+      <div class="vs">vs</div>
+      <div class="pb-stat">
+        <div class="big" style="color:#0b6e4f">64–81%</div>
+        <div class="sub" style="color:#0b6e4f">What US & European farmers<br>receive for the same produce</div>
+      </div>
+      <div style="flex:2;min-width:160px;border-left:1px solid #f6d28a;padding-left:1.2rem">
+        <p style="font-size:.88rem;color:#92400e"><strong>Up to 90% lost to middlemen & inefficiencies.</strong> The farmer who feeds the nation fights for survival.</p>
+        <p style="font-size:.7rem;color:#94a3b8;margin-top:.3rem">Source: Wikipedia / Agriculture in India, 2025</p>
+      </div>
+    </div>
+    <div class="problem-grid">
+      <div class="pcard"><div class="icon">🧅</div><h3>Middleman Trap</h3><p>Commission agents dictate prices. Farmers have no negotiating power over their own produce.</p></div>
+      <div class="pcard"><div class="icon">🌐</div><h3>No Global Access</h3><p>10 tonnes of bananas: ₹10L locally vs ₹17L+ internationally — a gap farmers never bridge.</p></div>
+      <div class="pcard"><div class="icon">⏳</div><h3>60–90 Day Payments</h3><p>Export payment cycles kill cash flow. Farmers sell cheap locally just to survive.</p></div>
+      <div class="pcard"><div class="icon">📋</div><h3>Export Complexity</h3><p>APEDA, customs, freight — only large traders can navigate it. Small farmers are locked out.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="container">
+    <div class="section-label">How It Works</div>
+    <h2 class="section-title">From farm to global buyer in 15 days</h2>
+    <p class="section-sub">BART-DO handles everything — matching, compliance, logistics, and payment. Farmers just list and get paid.</p>
+    <div class="steps">
+      <div class="step-item">
+        <div class="step-circle">1</div>
+        <div class="step-icon">🌾</div>
+        <h3>List Your Product</h3>
+        <p>Register and list your produce on BART-DO in minutes</p>
+      </div>
+      <div class="step-item">
+        <div class="step-circle">2</div>
+        <div class="step-icon">🤖</div>
+        <h3>AI Buyer Match</h3>
+        <p>Our AI engine matches you with the best international buyers</p>
+      </div>
+      <div class="step-item">
+        <div class="step-circle">3</div>
+        <div class="step-icon">📦</div>
+        <h3>We Handle Logistics</h3>
+        <p>Docs, customs, APEDA compliance, and shipping — we manage it all</p>
+      </div>
+      <div class="step-item">
+        <div class="step-circle">4</div>
+        <div class="step-icon">💳</div>
+        <h3>Get Paid in 15 Days</h3>
+        <p>Direct bank transfer at international prices — guaranteed</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOR FARMERS -->
+<section class="farmers" id="farmers">
+  <div class="container">
+    <div class="section-label">For Farmers</div>
+    <h2 class="section-title">Finally — fair prices for your hard work</h2>
+    <div class="farmers-grid">
+      <div class="farmers-visual">
+        <p style="font-size:.78rem;color:#a7d7c5;font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-bottom:1rem">Real Example: 10 Tonnes of Bananas</p>
+        <div class="price-compare">
+          <div class="price-box">
+            <div class="amount" style="color:#f87171">₹10L</div>
+            <div class="desc">Local market price<br>(after middlemen)</div>
+          </div>
+          <div class="price-arrow">→</div>
+          <div class="price-box" style="background:rgba(57,211,83,.15);border:1px solid rgba(57,211,83,.3)">
+            <div class="amount" style="color:#39d353">₹17L+</div>
+            <div class="desc">BART-DO international<br>export price</div>
+          </div>
+        </div>
+        <div style="background:rgba(255,255,255,.08);border-radius:8px;padding:.9rem;text-align:center">
+          <div style="font-size:1.4rem;font-weight:900;color:#39d353">+₹7 Lakhs</div>
+          <div style="font-size:.75rem;color:#a7d7c5;margin-top:.2rem">Extra income per order · BART-DO charges only 1.5%</div>
+        </div>
+      </div>
+      <div>
+        <ul class="benefit-list">
+          <li><div class="tick">✓</div><div><strong>70% more revenue</strong> — sell at international prices, not local mandi rates</div></li>
+          <li><div class="tick">✓</div><div><strong>15-day payment guarantee</strong> — fastest payment in the industry</div></li>
+          <li><div class="tick">✓</div><div><strong>Zero export knowledge needed</strong> — we handle all paperwork, customs & logistics</div></li>
+          <li><div class="tick">✓</div><div><strong>Only 1.5% commission</strong> — far less than what middlemen take</div></li>
+          <li><div class="tick">✓</div><div><strong>Government scheme benefits</strong> — we help you access APEDA, RoDTEP subsidies</div></li>
+          <li><div class="tick">✓</div><div><strong>Buyers in UAE, Qatar, Bangladesh, UK</strong> and 20+ countries</div></li>
+        </ul>
+        <a href="#register" class="btn-primary" style="display:inline-block;margin-top:1.5rem;text-decoration:none">Register as Farmer →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOR BUYERS -->
+<section class="buyers" id="buyers">
+  <div class="container">
+    <div class="section-label">For International Buyers</div>
+    <h2 class="section-title">Source directly from verified Indian farms</h2>
+    <p class="section-sub">Skip the brokers. Connect directly with India's farmers for consistent quality, transparent pricing, and reliable delivery.</p>
+    <div class="buyers-grid">
+      <div class="bcard"><div class="icon">✅</div><h3>Verified Suppliers</h3><p>Every farmer is KYC verified. Quality assurance on all products before shipment.</p></div>
+      <div class="bcard"><div class="icon">💰</div><h3>Competitive Pricing</h3><p>Direct farm-to-buyer pricing. No broker markups. Pay the fair market price.</p></div>
+      <div class="bcard"><div class="icon">📄</div><h3>Full Documentation</h3><p>Customs docs, phytosanitary certificates, and all export paperwork handled for you.</p></div>
+      <div class="bcard"><div class="icon">🚢</div><h3>Reliable Logistics</h3><p>End-to-end freight management. Cold chain available for perishables.</p></div>
+      <div class="bcard"><div class="icon">🌿</div><h3>Wide Product Range</h3><p>Bananas, mangoes, spices, grains, pulses, cardamom, and 100+ agri commodities.</p></div>
+      <div class="bcard"><div class="icon">🤝</div><h3>Dedicated Support</h3><p>Assigned relationship manager for every buyer account. 24/7 support.</p></div>
+    </div>
+    <div style="text-align:center;margin-top:2rem">
+      <a href="#register" class="btn-primary" style="display:inline-block;text-decoration:none">Register as Buyer →</a>
+    </div>
+  </div>
+</section>
+
+<!-- MARKET OPPORTUNITY -->
+<section class="market" id="market">
+  <div class="container">
+    <div class="section-label">Market Opportunity</div>
+    <h2 class="section-title">A trillion-dollar opportunity, barely tapped</h2>
+    <p style="font-size:.75rem;font-weight:700;color:#0b6e4f;text-transform:uppercase;letter-spacing:.5px;margin:1.5rem 0 .5rem">🇮🇳 India</p>
+    <div class="market-grid">
+      <div class="mcard"><div class="num">$51.2B</div><div class="lbl">Agri-exports in FY25</div><div class="src">IBEF, 2025</div></div>
+      <div class="mcard"><div class="num">140M+</div><div class="lbl">Farming households</div><div class="src">Govt. of India</div></div>
+      <div class="mcard"><div class="num">~2%</div><div class="lbl">Current global export share</div><div class="src">McKinsey, 2025</div></div>
+      <div class="mcard"><div class="num">$2.52B</div><div class="lbl">Agritech market by 2034</div><div class="src">IMARC, 2025</div></div>
+    </div>
+    <p style="font-size:.75rem;font-weight:700;color:#1565c0;text-transform:uppercase;letter-spacing:.5px;margin:1.5rem 0 .5rem">🌍 Global</p>
+    <div class="market-grid">
+      <div class="mcard blue"><div class="num">$9.9T</div><div class="lbl">Global agri-food market 2025</div><div class="src">Industry Research, 2025</div></div>
+      <div class="mcard blue"><div class="num">$936B</div><div class="lbl">Global agri-export trade 2025</div><div class="src">Statista, 2025</div></div>
+      <div class="mcard blue"><div class="num">14%</div><div class="lbl">Production growth next decade</div><div class="src">OECD-FAO, 2025</div></div>
+      <div class="mcard blue"><div class="num">80%+</div><div class="lbl">Gulf food is imported</div><div class="src">IBEF, 2025</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team" id="team">
+  <div class="container">
+    <div class="section-label">The Team</div>
+    <h2 class="section-title">Built by people who understand trade</h2>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-avatar" style="background:#0b6e4f">PK</div>
+        <h3>Parth Khadke</h3>
+        <div class="role">Co-Founder & CEO</div>
+        <p>Vision, strategy, business development & government partnerships. Deep domain expertise in trade and marketplace models.</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar" style="background:#1565c0">RK</div>
+        <h3>Rudra Khadke</h3>
+        <div class="role">Co-Founder & CTO</div>
+        <p>Platform architecture, AI matching engine, logistics integrations & security compliance systems.</p>
+      </div>
+      <div class="team-card" style="border-style:dashed">
+        <div class="team-avatar" style="background:#94a3b8">?</div>
+        <h3>Export Compliance Lead</h3>
+        <div class="role">Hiring · Month 3</div>
+        <p>APEDA, RoDTEP, customs documentation specialist to ensure frictionless international exports.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INVESTOR SECTION -->
+<section class="investor" id="investors">
+  <div class="container">
+    <div class="section-label">For Investors</div>
+    <h2 class="section-title" style="color:#fff">Join the pre-seed round</h2>
+    <p class="section-sub">BART-DO is raising $75,000 USD to build the platform, onboard first sellers, and close 100 international export orders before Series A.</p>
+    <div class="inv-grid">
+      <div class="inv-card"><div class="num">$75K</div><div class="lbl">Pre-seed raise</div></div>
+      <div class="inv-card"><div class="num">5–9%</div><div class="lbl">Effective yield per order</div></div>
+      <div class="inv-card"><div class="num">100</div><div class="lbl">Target export orders</div></div>
+      <div class="inv-card"><div class="num">45 Days</div><div class="lbl">Round closes</div></div>
+    </div>
+    <div class="inv-btns">
+      <a href="#register" class="btn-primary" style="text-decoration:none">Request Pitch Deck</a>
+      <a href="#register" class="btn-outline" style="text-decoration:none">Schedule a Call</a>
+    </div>
+  </div>
+</section>
+
+<!-- REGISTER FORM -->
+<section class="register" id="register">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:2rem">
+      <div class="section-label">Get Started</div>
+      <h2 class="section-title">Join BART-DO today</h2>
+      <p class="section-sub" style="margin:0 auto">Whether you're a farmer, buyer, or investor — register your interest and we'll be in touch within 24 hours.</p>
+    </div>
+    <div class="form-grid">
+      <div class="form-box">
+        <h3>Register Your Interest</h3>
+        <p>Tell us who you are and we'll get back to you.</p>
+        <div class="form-tabs">
+          <div class="tab active" onclick="setTab('farmer',this)">Farmer / Exporter</div>
+          <div class="tab" onclick="setTab('buyer',this)">Int'l Buyer</div>
+          <div class="tab" onclick="setTab('investor',this)">Investor</div>
+        </div>
+        <div id="farmer-form">
+          <div class="form-group"><label>Full Name</label><input type="text" placeholder="Your name"/></div>
+          <div class="form-group"><label>Phone Number</label><input type="text" placeholder="+91 XXXXX XXXXX"/></div>
+          <div class="form-group"><label>State / District</label><input type="text" placeholder="e.g. Pune, Maharashtra"/></div>
+          <div class="form-group"><label>Main Crop / Product</label><input type="text" placeholder="e.g. Bananas, Mangoes, Spices"/></div>
+          <div class="form-group"><label>Approx. Quantity Available</label><input type="text" placeholder="e.g. 5 tonnes/month"/></div>
+          <button class="submit-btn" onclick="submitForm('farmer')">Register as Farmer →</button>
+        </div>
+        <div id="buyer-form" style="display:none">
+          <div class="form-group"><label>Company Name</label><input type="text" placeholder="Your company"/></div>
+          <div class="form-group"><label>Country</label><input type="text" placeholder="e.g. UAE, Germany, UK"/></div>
+          <div class="form-group"><label>Email Address</label><input type="email" placeholder="you@company.com"/></div>
+          <div class="form-group"><label>Products Interested In</label><input type="text" placeholder="e.g. Spices, Fruits, Grains"/></div>
+          <div class="form-group"><label>Monthly Volume Needed</label><input type="text" placeholder="e.g. 20 tonnes/month"/></div>
+          <button class="submit-btn" onclick="submitForm('buyer')">Register as Buyer →</button>
+        </div>
+        <div id="investor-form" style="display:none">
+          <div class="form-group"><label>Full Name</label><input type="text" placeholder="Your name"/></div>
+          <div class="form-group"><label>Fund / Organisation</label><input type="text" placeholder="Your fund or company name"/></div>
+          <div class="form-group"><label>Email Address</label><input type="email" placeholder="you@fund.com"/></div>
+          <div class="form-group"><label>Typical Ticket Size</label><select><option>Under $25K</option><option>$25K – $75K</option><option>$75K – $250K</option><option>$250K+</option></select></div>
+          <button class="submit-btn" onclick="submitForm('investor')">Request Pitch Deck →</button>
+        </div>
+        <div class="success-msg" id="success-msg">Thank you! We'll be in touch within 24 hours.</div>
+      </div>
+      <div>
+        <h3 style="font-size:1.1rem;font-weight:800;color:#0b1f3a;margin-bottom:1rem">Why register now?</h3>
+        <div style="display:flex;flex-direction:column;gap:.9rem">
+          <div style="display:flex;gap:.8rem;align-items:flex-start">
+            <div style="width:36px;height:36px;background:#f0f9f5;border:1px solid #a7d7c5;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0">🌾</div>
+            <div><strong style="font-size:.88rem;color:#0b1f3a">Early access for farmers</strong><p style="font-size:.82rem;color:#64748b;margin-top:.1rem">Be among the first 500 sellers. Get priority buyer matching and a free APEDA registration assist.</p></div>
+          </div>
+          <div style="display:flex;gap:.8rem;align-items:flex-start">
+            <div style="width:36px;height:36px;background:#e8f0fb;border:1px solid #aec4f0;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0">🌍</div>
+            <div><strong style="font-size:.88rem;color:#0b1f3a">Buyers get verified suppliers first</strong><p style="font-size:.82rem;color:#64748b;margin-top:.1rem">Early buyers get dedicated account managers and pre-negotiated pricing.</p></div>
+          </div>
+          <div style="display:flex;gap:.8rem;align-items:flex-start">
+            <div style="width:36px;height:36px;background:#fef3e2;border:1px solid #f6d28a;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0">💡</div>
+            <div><strong style="font-size:.88rem;color:#0b1f3a">Investors get ground-floor terms</strong><p style="font-size:.82rem;color:#64748b;margin-top:.1rem">Pre-seed round closes in 45 days. Maximum upside before product-market fit is proven.</p></div>
+          </div>
+          <div style="display:flex;gap:.8rem;align-items:flex-start">
+            <div style="width:36px;height:36px;background:#f0f9f5;border:1px solid #a7d7c5;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0">⚡</div>
+            <div><strong style="font-size:.88rem;color:#0b1f3a">24-hour response guaranteed</strong><p style="font-size:.82rem;color:#64748b;margin-top:.1rem">Our team will personally reach out within one business day of your registration.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="logo">BART-DO</div>
+  <p>India's Global Export Marketplace — Connecting Farmers to the World</p>
+  <div class="footer-links">
+    <a href="#how">How It Works</a>
+    <a href="#farmers">For Farmers</a>
+    <a href="#buyers">For Buyers</a>
+    <a href="#investors">Investors</a>
+    <a href="#team">Team</a>
+    <a href="#register">Contact</a>
+  </div>
+  <p class="copy">© 2025 BART-DO. All rights reserved. | Presented by Parth Khadke & Rudra Khadke</p>
+</footer>
+
+<script>
+function setTab(type, el) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  ['farmer-form','buyer-form','investor-form'].forEach(id => {
+    document.getElementById(id).style.display = 'none';
+  });
+  document.getElementById(type + '-form').style.display = 'block';
+  document.getElementById('success-msg').style.display = 'none';
+}
+function submitForm(type) {
+  document.getElementById(type + '-form').style.display = 'none';
+  const msg = document.getElementById('success-msg');
+  msg.style.display = 'block';
+  msg.textContent = type === 'investor'
+    ? 'Thank you! We\'ll send you the pitch deck and schedule a call within 24 hours.'
+    : type === 'buyer'
+    ? 'Thank you! Your buyer profile is registered. We\'ll be in touch within 24 hours.'
+    : 'Thank you! You\'re on our early farmer list. Our team will call you shortly.';
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const el = document.querySelector(a.getAttribute('href'));
+    if(el) el.scrollIntoView({behavior:'smooth'});
+  });
+});
+</script>
+</body>
+</html>
